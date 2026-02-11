@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sphinx-ymmsl"
+description = "Sphinx plugin for documenting yMMSL models"
+readme = {file = "README.md", content-type = "text/markdown"}
+authors = [
+]
+classifiers = [
+]
+license = {file = "LICENSE.txt"}
+dependencies = [
+    "myst-parser",
+    # "ymmsl >= 0.15",
+    "ymmsl @ git+https://github.com/multiscale/ymmsl-python.git@develop",
+]
+dynamic = ["version"]
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "pytest",
+    "pytest-cov",
+]
+
+[project.urls]
+homepage = "https://github.com/multiscale/sphinx-ymmsl"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sphinx_ymmsl*"]
+
+[project.scripts]
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[tool.ruff]
+include = ["pyproject.toml", "sphinx_ymmsl/**/*.py", "tests/**/*.py"]
+exclude = [
+    "docs",
+    ".git",
+]
+# Same as Black
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
