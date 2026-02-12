@@ -11,3 +11,8 @@ command will build HTML documentation, which you can view by opening
 ```bash
 make -C docs html
 ```
+
+# Legal
+
+Copyright 2026 ITER Organization. The code in this repository is licensed under the
+[Apache-2.0 license](LICENSE.txt)
