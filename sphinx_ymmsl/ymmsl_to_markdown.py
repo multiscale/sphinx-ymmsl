@@ -40,26 +40,26 @@ def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
             markdown_lines.append("")
 
         if model_data.components:
-            for comp_name, comp_obj in model_data.components.items():
+            for comp_name, component in model_data.components.items():
                 markdown_lines.append(f"#### {format_title(comp_name)}")
 
-                if comp_obj.description:
+                if component.description:
                     comp_desc = demote_markdown_headers(
-                        comp_obj.description.strip(), level=4
+                        component.description.strip(), level=4
                     )
                     markdown_lines.extend([comp_desc, ""])
 
-                if comp_obj.ports:
+                if component.ports:
                     headers = ["Operator", "Port Name"]
                     rows = [
-                        (comp_obj.ports[port_name].operator.name, port_name)
-                        for port_name in comp_obj.ports
+                        (component.ports[port_name].operator.name, port_name)
+                        for port_name in component.ports
                     ]
                     markdown_lines.extend([markdown_table(headers, rows), ""])
 
-                if comp_obj.implementation:
+                if component.implementation:
                     markdown_lines.extend(
-                        [f"**Implementation**: `{comp_obj.implementation}`", ""]
+                        [f"**Implementation**: `{component.implementation}`", ""]
                     )
 
         if model_data.supported_settings:
@@ -71,15 +71,15 @@ def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
             ]
             markdown_lines.extend([markdown_table(headers, rows), ""])
 
-            markdown_lines.append("**`[int]`**: list of int")
-            markdown_lines.append("**`[float]`**: list of float")
-            markdown_lines.append("**`[[float]]`**: list of list of float")
+            markdown_lines.append(
+                "For more information about the types: [yMMSL documentation](https://ymmsl-python.readthedocs.io/en/develop/index.html)."
+            )
             markdown_lines.append("")
 
     return "\n".join(markdown_lines)
 
 
-def ymmsl_markdown(cfg: ymmsl.v0_2.Configuration, ymmsl_path: Path) -> str:
+def ymmsl_to_markdown(ymmsl_path: Path) -> str:
     """
     Generate complete Markdown documentation for a yMMSL file.
 
@@ -89,6 +89,8 @@ def ymmsl_markdown(cfg: ymmsl.v0_2.Configuration, ymmsl_path: Path) -> str:
         - The yMMSL file name and version.
         - Detailed model documentation defined by model_markdown_generation.
     """
+    cfg = ymmsl.load_as(ymmsl.v0_2.Configuration, ymmsl_path)
+
     markdown_lines = []
     markdown_lines.append(f"# yMMSL {format_title(ymmsl_path.stem)} Documentation")
 
@@ -121,8 +123,7 @@ def main():
 
     args = parser.parse_args()
 
-    cfg = ymmsl.load_as(ymmsl.v0_2.Configuration, args.input)
-    markdown_text = ymmsl_markdown(cfg, args.input)
+    markdown_text = ymmsl_to_markdown(args.input)
 
     args.output.write_text(markdown_text, encoding="utf-8")
     print(f"Markdown file saved as: {args.output}")
