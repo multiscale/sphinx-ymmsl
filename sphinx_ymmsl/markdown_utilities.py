@@ -1,6 +1,7 @@
-""" Utilities for generating a markdown file based on a ymmsl file. """
+"""Utilities for generating a markdown file based on a ymmsl file."""
 
-from typing import List, Iterable, Any
+from typing import Any, Iterable, List
+
 
 def format_title(name: str) -> str:
     """Replace underscores with spaces and capitalize each word."""
@@ -21,6 +22,7 @@ def demote_markdown_headers(text: str, level: int = 1) -> str:
             new_lines.append(line)
 
     return "\n".join(new_lines)
+
 
 def markdown_table(headers: List[str], rows: Iterable[Any]) -> str:
     """

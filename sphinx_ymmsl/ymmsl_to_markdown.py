@@ -1,14 +1,15 @@
-""" Generation of a markdown file based on a yMMSL file. """
+"""Generation of a markdown file based on a yMMSL file."""
 
-from pathlib import Path
 import argparse
-import ymmsl
+from pathlib import Path
 
+import ymmsl
 from markdown_utilities import (
-    format_title,
     demote_markdown_headers,
+    format_title,
     markdown_table,
 )
+
 
 def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
     """
@@ -17,7 +18,7 @@ def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
     The generated documentation includes:
     - Model titles along with their descriptions.
     - Conduits listed as bullet points.
-    - Components with their descriptions, ports presented in tables, and implementation details.
+    - Components with their descriptions, ports presented in tables, and implementation.
     - A table of supported settings for each model.
     """
     if not cfg.models:
@@ -43,7 +44,9 @@ def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
                 markdown_lines.append(f"#### {format_title(comp_name)}")
 
                 if comp_obj.description:
-                    comp_desc = demote_markdown_headers(comp_obj.description.strip(), level=4)
+                    comp_desc = demote_markdown_headers(
+                        comp_obj.description.strip(), level=4
+                    )
                     markdown_lines.extend([comp_desc, ""])
 
                 if comp_obj.ports:
@@ -55,7 +58,9 @@ def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
                     markdown_lines.extend([markdown_table(headers, rows), ""])
 
                 if comp_obj.implementation:
-                    markdown_lines.extend([f"**Implementation**: `{comp_obj.implementation}`", ""])
+                    markdown_lines.extend(
+                        [f"**Implementation**: `{comp_obj.implementation}`", ""]
+                    )
 
         if model_data.supported_settings:
             markdown_lines.append("#### Supported Settings")
@@ -72,6 +77,7 @@ def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
             markdown_lines.append("")
 
     return "\n".join(markdown_lines)
+
 
 def ymmsl_markdown(cfg: ymmsl.v0_2.Configuration, ymmsl_path: Path) -> str:
     """
@@ -104,9 +110,12 @@ def ymmsl_markdown(cfg: ymmsl.v0_2.Configuration, ymmsl_path: Path) -> str:
 
     return "\n".join(markdown_lines)
 
+
 def main():
     """CLI entry point."""
-    parser = argparse.ArgumentParser(description="Generate Markdown documentation from a yMMSL file.")
+    parser = argparse.ArgumentParser(
+        description="Generate Markdown documentation from a yMMSL file."
+    )
     parser.add_argument("input", type=Path, help="Path to input .ymmsl file")
     parser.add_argument("output", type=Path, help="Path to output .md file")
 
