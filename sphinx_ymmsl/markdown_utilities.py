@@ -32,6 +32,12 @@ def markdown_table(headers: List[str], rows: Iterable[Any]) -> str:
         headers: List of column headers.
         rows: Iterable of row iterables.
     """
+    bad_headers = [h for h in headers if "|" in h]
+    if bad_headers:
+        # Replacing | with \| so the pipes are treated as text andd NOT as Markdown
+        # table column separator.
+        headers = [h.replace("|", r"\|") for h in headers]
+
     table_lines = []
     table_lines.append("| " + " | ".join(headers) + " |")
     table_lines.append("| " + " | ".join(["-" * len(h) for h in headers]) + " |")
