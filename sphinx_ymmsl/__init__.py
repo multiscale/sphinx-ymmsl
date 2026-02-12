@@ -2,7 +2,6 @@
 
 # See https://www.sphinx-doc.org/en/master/development/tutorials/extending_syntax.html
 
-
 import importlib.metadata
 
 from docutils import nodes
