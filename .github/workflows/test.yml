@@ -32,4 +32,4 @@ jobs:
         run: ruff format --diff
 
       - name: Run tests
-        run: pytest --cov=imas_iter_mapping --cov-report=term-missing
+        run: pytest --cov=sphinx_ymmsl --cov-report=term-missing
