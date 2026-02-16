@@ -30,7 +30,8 @@ class YmmslDirective(SphinxDirective):
         document = new_document(filename, self.state.document.settings)
         parser = MystParser()
         # TODO: replace sample markdown string with markdown generated from ymmsl file
-        parser.parse(f"""\
+        parser.parse(
+            f"""\
 # Test markdown for yMMSL file: {filename}
 
 Let's see if we can process markdown correctly!
@@ -40,7 +41,9 @@ Let's see if we can process markdown correctly!
    - This should be an enumerated list
    - With some items
    - One more
-""", document)
+""",
+            document,
+        )
         self.env.note_dependency(filename)
         return document.children
 
