@@ -19,7 +19,8 @@ def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
     The generated documentation includes:
     - Model titles along with their descriptions.
     - Conduits listed as bullet points.
-    - Components with their descriptions, ports presented in tables, and implementation.
+    - Components with their descriptions, ports presented in tables, implementation, and
+      multiplicity.
     - A table of supported settings for each model.
     """
     if not cfg.models:
