@@ -63,6 +63,11 @@ def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
                         [f"**Implementation**: `{component.implementation}`", ""]
                     )
 
+                if component.multiplicity:
+                    markdown_lines.extend(
+                        [f"**Multiplicity**: `{component.multiplicity}`", ""]
+                    )
+
         if model_data.supported_settings:
             markdown_lines.append("#### Supported Settings")
             headers = ["Parameter", "Type", "Description"]
