@@ -35,6 +35,15 @@ def model_markdown_generation(cfg: ymmsl.v0_2.Configuration) -> str:
             desc = demote_markdown_headers(model_data.description.strip(), level=3)
             markdown_lines.extend([desc, ""])
 
+        if model_data.ports:
+            markdown_lines.append("### Model ports")
+            headers = ["Operator", "Port Name"]
+            rows = [
+                (model_data.ports[port_name].operator.name, port_name)
+                for port_name in model_data.ports
+            ]
+            markdown_lines.extend([markdown_table(headers, rows), ""])
+
         if model_data.conduits:
             markdown_lines.append("#### Conduits")
             for conduit in model_data.conduits:
