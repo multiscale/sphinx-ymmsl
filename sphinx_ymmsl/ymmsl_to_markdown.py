@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 
 import ymmsl
+
 from .markdown_utilities import (
     demote_markdown_headers,
     format_title,
