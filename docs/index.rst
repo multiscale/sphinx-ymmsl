@@ -11,7 +11,3 @@ documentation for details.
    :caption: Contents:
 
    examples
-
-
-.. ymmsl:: test.ymmsl
-

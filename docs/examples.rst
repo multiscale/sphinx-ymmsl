@@ -12,7 +12,7 @@ Input File
 ~~~~~~~~~~
 
 .. literalinclude:: examples/example_model.ymmsl
-   :language: yaml
+   :language: ymmsl
    :caption: examples/example_model.ymmsl
 
 Converted Output
