@@ -114,7 +114,7 @@ def ymmsl_to_markdown(ymmsl_path: Path) -> str:
         desc = demote_markdown_headers(cfg.description.strip())
         markdown_lines.extend([desc, ""])
 
-    markdown_lines.append(f"**Model file**: `{ymmsl_path.name}`")
+    markdown_lines.extend([f"**Model file**: `{ymmsl_path.name}`", ""])
 
     # Extract version from file
     for line in ymmsl_path.read_text().splitlines():
