@@ -123,10 +123,9 @@ def temp_ymmsl_file() -> Generator[callable, None, None]:
     created_files = []
 
     def _create_file(content: str) -> Path:
-        f = tempfile.NamedTemporaryFile(mode="w", suffix=".ymmsl", delete=False)
-        f.write(content)
-        f.close()
-        path = Path(f.name)
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".ymmsl", delete=False) as f:
+            f.write(content)
+            path = Path(f.name)
         created_files.append(path)
         return path
 
@@ -138,13 +137,13 @@ def temp_ymmsl_file() -> Generator[callable, None, None]:
 
 
 @pytest.fixture
-def load_ymmsl_config(temp_ymmsl_file) -> callable:
+def load_ymmsl_config(temp_ymmsl_file_factory: callable) -> callable:
     """
     Load the yMMSL file at a given path and return the configuration.
     """
 
     def _load_config(content: str) -> ymmsl.v0_2.Configuration:
-        path = temp_ymmsl_file(content)
+        path = temp_ymmsl_file_factory(content)
         return ymmsl.load_as(ymmsl.v0_2.Configuration, path)
 
     return _load_config

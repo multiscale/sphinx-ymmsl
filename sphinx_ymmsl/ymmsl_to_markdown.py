@@ -28,7 +28,7 @@ def ports_markdown(
 
     markdown_lines = []
     if header_level:
-        markdown_lines.append(f"{header_level} {header_text}")
+        markdown_lines.append(f"{'#' * header_level} {header_text}")
 
     headers = ["Operator", "Port Name"]
     rows = [(ports[port_name].operator.name, port_name) for port_name in ports]
@@ -43,7 +43,7 @@ def conduits_markdown(conduits: list, header_level: int = 4) -> List[str]:
     if not conduits:
         return []
 
-    markdown_lines = [f"{header_level} Conduits"]
+    markdown_lines = [f"{'#' * header_level} Conduits"]
     for conduit in conduits:
         markdown_lines.append(f"* {conduit.sender}: {conduit.receiver}")
     markdown_lines.append("")
@@ -61,8 +61,10 @@ def component_markdown(comp_name: str, component) -> List[str]:
         markdown_lines.extend([comp_desc, ""])
 
     markdown_lines.extend(ports_markdown(component.ports))
-    markdown_lines.extend([f"**Implementation**: `{component.implementation}`", ""])
-    markdown_lines.extend([f"**Multiplicity**: `{component.multiplicity}`", ""])
+    if component.implementation:
+        markdown_lines.extend([f"**Implementation**: `{component.implementation}`", ""])
+    if component.multiplicity:
+        markdown_lines.extend([f"**Multiplicity**: `{component.multiplicity}`", ""])
 
     return markdown_lines
 
