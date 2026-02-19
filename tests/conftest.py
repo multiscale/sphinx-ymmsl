@@ -2,7 +2,7 @@
 
 import tempfile
 from pathlib import Path
-from typing import Generator
+from typing import Callable, Generator
 
 import pytest
 import ymmsl
@@ -116,7 +116,7 @@ models:
 
 
 @pytest.fixture
-def temp_ymmsl_file() -> Generator[callable, None, None]:
+def temp_ymmsl_file() -> Generator[Callable[[str], Path], None, None]:
     """
     Create a temporary yMMSL file.
     """
@@ -137,13 +137,15 @@ def temp_ymmsl_file() -> Generator[callable, None, None]:
 
 
 @pytest.fixture
-def load_ymmsl_config(temp_ymmsl_file_factory: callable) -> callable:
+def load_ymmsl_config(
+    temp_ymmsl_file: Callable[[str], Path],  # pylint: disable=redefined-outer-name
+) -> Callable[[str], ymmsl.v0_2.Configuration]:
     """
     Load the yMMSL file at a given path and return the configuration.
     """
 
     def _load_config(content: str) -> ymmsl.v0_2.Configuration:
-        path = temp_ymmsl_file_factory(content)
+        path = temp_ymmsl_file(content)
         return ymmsl.load_as(ymmsl.v0_2.Configuration, path)
 
     return _load_config
