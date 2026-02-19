@@ -1,0 +1,1 @@
+.. ymmsl:: examples/example_model.ymmsl

@@ -18,6 +18,9 @@ Input File
 Converted Output
 ~~~~~~~~~~~~~~~~
 
-The yMMSL file is processed and generates the following documentation: 
+The yMMSL file is processed and generates the following documentation:
 
-.. ymmsl:: examples/example_model.ymmsl
+.. toctree::
+   :maxdepth: 1
+
+   examples/example_model
