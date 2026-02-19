@@ -1,23 +1,23 @@
 Examples
 ========
 
-This section demonstrates how yMMSL files are converted to Markdown documentation using the ``ymmsl`` directive.
+This section shows several examples of how yMMSL files are converted into Markdown documentation.
 
-Example Model
--------------
+Macro-Micro Model
+-----------------
 
-Below is an example of a macro-micro model. The yMMSL input file (``examples/example_model.ymmsl``) is automatically converted to formatted documentation.
+Below is an example of a macro-micro model, this example was taken from the `yMMSL documentation <https://ymmsl-python.readthedocs.io/en/develop/basic_usage.html>`_.
 
 Input File
 ~~~~~~~~~~
 
 .. literalinclude:: examples/example_model.ymmsl
    :language: ymmsl
-   :caption: examples/example_model.ymmsl
+   :caption: example_model.ymmsl
 
 Converted Output
 ~~~~~~~~~~~~~~~~
 
-The ``.. ymmsl::`` directive processes the yMMSL file and generates the following documentation:
+The yMMSL file is processed and generates the following documentation: 
 
 .. ymmsl:: examples/example_model.ymmsl
