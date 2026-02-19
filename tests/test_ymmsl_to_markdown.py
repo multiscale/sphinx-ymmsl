@@ -2,10 +2,7 @@
 
 from pathlib import Path
 
-import pytest
-
 from sphinx_ymmsl.ymmsl_to_markdown import (
-    component_markdown,
     components_markdown,
     conduits_markdown,
     extract_version_from_file,
