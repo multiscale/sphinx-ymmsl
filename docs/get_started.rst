@@ -1,12 +1,12 @@
 Get Started
 ===============
 
-This guide will help you get started with **sphinx-ymmsl**, a Sphinx extension that automatically generates documentation from yMMSL files.
+This page gives a quick overview of how to get started with **sphinx-ymmsl**.
 
 Installation
 ------------
 
-You can install sphinx-ymmsl using pip:
+To install sphinx-ymmsl use pip: 
 
 .. code-block:: bash
 
@@ -23,9 +23,6 @@ To use sphinx-ymmsl in your Sphinx documentation project, you need to add it to 
        'sphinx_ymmsl',
        # ... other extensions
    ]
-
-.. note::
-   The sphinx-ymmsl extension automatically loads the ``myst_parser`` extension, which is required to process the generated Markdown content.
 
 Basic Usage
 -----------
@@ -63,21 +60,3 @@ When Sphinx builds your documentation, the ``.. ymmsl::`` directive will:
 2. Generate formatted Markdown documentation
 3. Convert the Markdown to HTML
 
-What Gets Documented
---------------------
-
-The sphinx-ymmsl extension automatically extracts and documents the following information from your yMMSL files:
-
-- **Model descriptions**: High-level overview of your multiscale model
-- **Supported settings**: Configuration parameters with their types and descriptions
-- **Components**: Individual computational components with their descriptions
-- **Ports**: Input and output ports for each component or model, including data types
-- **Multiplicity**: Information about replicated components
-- **Conduits**: Connections between components
-
-Next Steps
-----------
-
-- See the :doc:`examples` page for detailed examples of yMMSL files and their generated documentation
-- Learn more about the yMMSL language in the `yMMSL documentation <https://ymmsl-python.readthedocs.io/en/develop/index.html>`_
-- Explore the `MUSCLE3 documentation <https://muscle3.readthedocs.io/>`_ to understand how yMMSL fits into the multiscale modeling workflow
