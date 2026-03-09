@@ -12,9 +12,7 @@ Below is an example of a macro-micro model, this example was taken from the `yMM
    :language: yaml
    :caption: example_model.ymmsl
 
-:ref:`Converted Output: yMMSL Example Model Documentation <example_model>`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 .. _example_model:
 
-.. include:: examples/example_model.rst
+:ref:`Converted Output: yMMSL Example Model Documentation <example_model>`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
