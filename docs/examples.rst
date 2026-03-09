@@ -8,17 +8,16 @@ Macro-Micro Model
 
 Below is an example of a macro-micro model, this example was taken from the `yMMSL documentation <https://ymmsl-python.readthedocs.io/en/develop/basic_usage.html>`_.
 
-Input File
-~~~~~~~~~~
-
 .. literalinclude:: examples/example_model.ymmsl
    :language: yaml
    :caption: example_model.ymmsl
 
-Converted Output
-~~~~~~~~~~~~~~~~
+:ref:`Converted Output: yMMSL Example Model Documentation <example_model>`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The yMMSL file is processed and generates the following documentation:
+
+.. _example_model:
 
 .. toctree::
    :maxdepth: 1
