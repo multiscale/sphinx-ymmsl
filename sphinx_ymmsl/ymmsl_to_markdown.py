@@ -212,6 +212,7 @@ def ymmsl_to_markdown(ymmsl_path: Path) -> str:
         - A title based on the yMMSL file name.
         - The configuration description, if available.
         - The yMMSL file name and version.
+        - A table of contents.
         - Detailed model documentation defined by model_markdown_generation.
     """
     cfg = ymmsl.load_as(ymmsl.v0_2.Configuration, ymmsl_path)
@@ -219,6 +220,11 @@ def ymmsl_to_markdown(ymmsl_path: Path) -> str:
     markdown_lines = []
     markdown_lines.extend(generate_document_header(ymmsl_path, cfg.description))
     markdown_lines.extend(generate_file_info(ymmsl_path))
+
+    # Add table of contents if there are models
+    if cfg.models:
+        markdown_lines.extend(["```{contents}", "```", ""])
+
     markdown_lines.append(model_markdown(cfg))
 
     return "\n".join(markdown_lines)
