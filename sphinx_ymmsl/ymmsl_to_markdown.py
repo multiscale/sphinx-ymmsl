@@ -195,8 +195,8 @@ def model_markdown(cfg: ymmsl.v0_2.Configuration) -> str:
         markdown_lines.extend(
             ports_markdown(model_data.ports, header_level=3, header_text="Model Ports")
         )
-        markdown_lines.extend(conduits_markdown(model_data.conduits))
         markdown_lines.extend(components_markdown(model_data.components))
+        markdown_lines.extend(conduits_markdown(model_data.conduits))
         markdown_lines.extend(
             generate_supported_settings_markdown(model_data.supported_settings)
         )
