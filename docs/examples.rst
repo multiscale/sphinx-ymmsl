@@ -15,11 +15,6 @@ Below is an example of a macro-micro model, this example was taken from the `yMM
 :ref:`Converted Output: yMMSL Example Model Documentation <example_model>`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The yMMSL file is processed and generates the following documentation:
-
 .. _example_model:
 
-.. toctree::
-   :maxdepth: 1
-
-   examples/example_model
+.. include:: examples/example_model.rst
