@@ -18,6 +18,6 @@ Below is an example of a macro-micro model, this example was taken from the `yMM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
-   :hidden:
+   :maxdepth: 4
 
    examples/example_model
