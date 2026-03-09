@@ -40,19 +40,6 @@ The basic syntax is:
 
 The path should be relative to your Sphinx source directory (typically the ``docs/`` folder).
 
-Example
-~~~~~~~
-
-Suppose you have a yMMSL file at ``docs/models/my_model.ymmsl``. You can include its documentation in your RST file like this:
-
-.. code-block:: rst
-
-   My Model Documentation
-   ======================
-
-   This page documents my multiscale model.
-
-   .. ymmsl:: models/my_model.ymmsl
 
 When Sphinx builds your documentation, the ``.. ymmsl::`` directive will:
 
