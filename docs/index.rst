@@ -14,7 +14,7 @@ This allows you to maintain your yMMSL files and automatically generate human-re
 For more information about yMMSL files and the yMMSL language specification, see the `yMMSL documentation <https://ymmsl-python.readthedocs.io/en/develop/index.html>`_.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
    get_started
