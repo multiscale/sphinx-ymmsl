@@ -9,4 +9,5 @@ For more information about yMMSL files and the yMMSL language specification, see
    :maxdepth: 2
    :caption: Contents:
 
+   get_started
    examples
