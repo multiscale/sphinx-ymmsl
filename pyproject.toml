@@ -15,8 +15,7 @@ classifiers = [
 license = {file = "LICENSE.txt"}
 dependencies = [
     "myst-parser",
-    # "ymmsl >= 0.15",
-    "ymmsl @ git+https://github.com/multiscale/ymmsl-python.git@develop",
+    "ymmsl >= 0.15",
 ]
 dynamic = ["version"]
 requires-python = ">=3.7"
