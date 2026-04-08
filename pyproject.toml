@@ -12,7 +12,8 @@ authors = [
 ]
 classifiers = [
 ]
-license = {file = "LICENSE.txt"}
+license = "Apache-2.0"
+license-files = ["LICENSE.txt"]
 dependencies = [
     "myst-parser",
     "ymmsl >= 0.15",
