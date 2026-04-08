@@ -1,8 +1,19 @@
 # sphinx-ymmsl: Sphinx plugin for documenting yMMSL models
 
-## Build documentation
+This project provides a sphinx plugin for documenting yMMSL models, used with the
+MUSCLE3 simulation framework.
+See the [online documentation](https://sphinx-ymmsl.readthedocs.io/) for more details.
 
-> **TODO**: deploy documentation
+## Installation
+
+`sphinx-ymmsl` is available on [PyPI](https://pypi.org/project/sphinx-ymmsl/) and can be
+installed with `pip`:
+
+```bash
+pip install sphinx-ymmsl
+```
+
+## Build documentation
 
 Documentation for this project can be generated using Sphinx. The following `make`
 command will build HTML documentation, which you can view by opening

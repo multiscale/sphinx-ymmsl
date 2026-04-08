@@ -12,7 +12,8 @@ authors = [
 ]
 classifiers = [
 ]
-license = {file = "LICENSE.txt"}
+license = "Apache-2.0"
+license-files = ["LICENSE.txt"]
 dependencies = [
     "myst-parser",
     "ymmsl >= 0.15",
@@ -32,6 +33,8 @@ docs = [
 
 [project.urls]
 homepage = "https://github.com/multiscale/sphinx-ymmsl"
+documentation = "https://sphinx-ymmsl.readthedocs.io/"
+issues =  "https://github.com/multiscale/sphinx-ymmsl/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
